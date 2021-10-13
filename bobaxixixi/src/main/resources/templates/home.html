@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title> Home </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+ 
+<body>
+<nav th:replace="fragments/fragment :: navbar('Home')">
+</nav>
+<div class="d-flex justify-content-center">
+    <div class="m-4">
+        <h2>Selamat datang di Bobaxixixi</h2>
+        <!-- <div class="d-flex justify-content-center">
+            <a th:href="@{/cabang/viewall}" class="mx-2 btn btn-dark">Lihat semua cabang</a>
+            <a th:href="@{/cabang/add}" class="mx-2 btn btn-outline-dark">Tambah cabang</a>
+        </div>
+        <div class="my-3 d-flex justify-content-center">
+            <a th:href="@{/menu/viewall}" class="mx-2 btn btn-dark">Lihat semua menu</a>
+            <a th:href="@{/menu/add}" class="mx-2 btn btn-outline-dark">Tambah menu</a>
+        </div> -->
+    </div>
+</div>
+<div th:replace="fragments/fragment :: footer('Home')">
+</div>
+</body>
+ 
+</html>
