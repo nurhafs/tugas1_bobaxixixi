@@ -28,6 +28,11 @@ public class StoreServiceImpl implements StoreService{
     }
 
     @Override
+    public void removeStore(StoreModel store) {
+        storeDb.delete(store);
+    }
+
+    @Override
     public List<StoreModel> getStoreList() { return storeDb.findAll();}
 
     @Override
@@ -42,8 +47,4 @@ public class StoreServiceImpl implements StoreService{
     @Override
     public List<StoreModel> getStoreListSorted() { return storeDb.findAllByOrderByNamaStoreAsc(); }
 
-    @Override
-    public void deleteStore(StoreModel store) {
-        storeDb.delete(store);
-    }
 }

@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import apap.tugas.bobaxixixi.model.BobaTeaModel;
 
 @Repository
-public interface BobaTeaDb extends JpaRepository<BobaTeaModel, String> {
-    Optional<BobaTeaModel> findByNamaBoba(String nama);
+public interface BobaTeaDb extends JpaRepository<BobaTeaModel, Long> {
+    Optional<BobaTeaModel> findByIdBoba(Long id);
 }

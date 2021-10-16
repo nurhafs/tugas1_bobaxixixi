@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+ 
+<head>
+    <meta charset="UTF-8">
+    <title> BOBAXIXIXI </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+ 
+<body>
+<nav th:replace="fragments/fragment :: navbar('Store')">
+</nav>
+<div class="container">
+    <h2>List of Store</h2>
+    <br>
+    <a class="btn btn-warning" th:href="@{/store/add/}">+ Add Store</a> 
+    <br>
+    <div th:if="*{listStore.size() != 0}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Store Code</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Operational Hour</th>
+                    <th></th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="store, iterationStatus : ${listStore}"
+                    th:style="${iterationStatus.even} ? 'font-weight:bold;'">
+                    <td th:text="${iterationStatus.count}"></td>
+                    <td th:text="${store.store_code}"></td>
+                    <td th:text="${store.namaStore}"></td>
+                    <td th:text="${store.alamatStore}"></td>
+                    <td th:text="${store.jamBuka} + ' - ' + ${store.jamTutup}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/store/} + ${store.idStore}">View</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/store/update/} + ${store.idStore}">Update</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/store/delete/} + ${store.idStore}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+    <div th:unless="*{listStore.size() != 0}">
+        <h2 th:text="'No Store'"></h2>
+    </div>
+    <a class="btn btn-primary" href="/">Home</a>
+</div>
+</body>
+ 
+</html>

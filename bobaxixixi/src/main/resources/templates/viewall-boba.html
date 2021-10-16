@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> BOBAXIXIXI </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+ 
+<body>
+<nav th:replace="fragments/fragment :: navbar('Boba')">
+</nav>
+<div class="container">
+    <br><br>
+    <h2>List of Boba</h2>
+    <br>
+    <a class="btn btn-warning" th:href="@{/boba/add/}">+ Add Boba</a> 
+    <br>
+    <div th:if="*{listBoba.size() != 0}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Ice</th>
+                    <th>Sugar</th>
+                    <th>Topping</th>
+                    <th></th>
+                    <th>Action</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="boba, iterationStatus : ${listBoba}"
+                    th:style="${iterationStatus.even} ? 'font-weight:bold;'">
+                    <td th:text="${iterationStatus.count}"></td>
+                    <td th:text="${boba.namaBoba}"></td>
+                    <td th:text="${boba.harga}"></td>
+                    <td th:if="${boba.size} == 0">S</td>
+                    <td th:if="${boba.size} == 1">M</td>
+                    <td th:if="${boba.size} == 2">L</td>
+                    <td th:if="${boba.ice_level} == 0">Less</td>
+                    <td th:if="${boba.ice_level} == 1">Normal</td>
+                    <td th:if="${boba.ice_level} == 2">Extra</td>
+                    <td th:if="${boba.sugar_level} == 0">Less</td>
+                    <td th:if="${boba.sugar_level} == 1">Normal</td>
+                    <td th:if="${boba.sugar_level} == 2">Extra</td>
+                    <td th:text="${boba.topping.namaTopping}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/boba/} + ${boba.idBoba}">Assign</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/boba/update/} + ${boba.idBoba}">Update</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-sm btn-primary" th:href="@{/boba/delete/} + ${boba.idBoba}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+    <div th:unless="*{listBoba.size() != 0}">
+        <h2 th:text="'No Boba'"></h2>
+    </div>
+    <a class="btn btn-primary" href="/">Home</a>
+</div>
+</body>
+ 
+</body>
+</html>

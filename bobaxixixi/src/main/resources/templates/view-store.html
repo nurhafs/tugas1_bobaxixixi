@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> BOBAXIXIXI </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+ 
+<body>
+<nav th:replace="fragments/fragment :: navbar('Boba')">
+</nav>
+<div class="container">
+    <h2>Store Detail</h2>
+    <br>
+    <div class="flex-container">
+        <div class="flex-left">
+            <table>
+                <tr>
+                    <th>Store Name</th>
+                    <td th:text="${store.namaStore}"></td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td th:text="${store.alamatStore}"></td>
+                </tr>
+                <tr>
+                    <th>Open Hour</th>
+                    <td th:text="${store.jamBuka}"></td>
+                </tr>
+                <tr>
+                    <th>Close Hour</th>
+                    <td th:text="${store.jamTutup}"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="flex-right">
+            <table>
+                <tr>
+                    <th>Store Code</th>
+                    <td th:text="${store.store_code}"></td>
+                </tr>
+                <tr>
+                    <th>Manager</th>
+                    <td th:text="${store.manager.namaManager}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div style="margin-left: auto; margin-right: auto;">
+        <h3>List of Boba Tea</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Topping</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            kerjain addnya dulu
+                <tr th:each="sbt, iterationStatus : ${store.bobas}">
+                <td th:text="${iterationStatus.count}"></td>
+                <td th:text="${sbt.id_boba.namaBoba}"></td>
+                <td th:text="${sbt.id_boba.topping}"></td>
+                <td th:text="${sbt.id_boba.harga}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="btn btn-warning" th:href="@{/store/} + ${store.idStore} + '/assign-boba'">Insert Boba</a>
+    </div>
+</div>
+
+</body>
+</html>

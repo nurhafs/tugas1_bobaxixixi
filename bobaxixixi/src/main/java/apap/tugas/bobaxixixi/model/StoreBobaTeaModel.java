@@ -38,5 +38,5 @@ public class StoreBobaTeaModel implements Serializable{
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "idBoba", referencedColumnName = "idBoba", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private BobaTeaModel id_boba;
+    private BobaTeaModel  id_boba;
 }

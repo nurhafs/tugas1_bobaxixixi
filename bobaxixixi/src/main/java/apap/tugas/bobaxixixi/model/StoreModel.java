@@ -38,11 +38,6 @@ public class StoreModel implements Serializable {
     private String alamatStore;
 
     @NotNull
-    @Size(max = 12)
-    @Column(name = "notelp_store", nullable = false)
-    private String noTeleponStore;
-
-    @NotNull
     @Size(max = 10)
     @Column(name = "store_code", nullable = false, unique = true)
     private String store_code;

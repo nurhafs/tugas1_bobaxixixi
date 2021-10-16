@@ -46,8 +46,8 @@ public class BobaTeaModel implements Serializable{
     private int sugar_level;
 
     //relasi dengan Topping
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "idTopping", referencedColumnName = "idTopping", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idTopping", referencedColumnName = "idTopping")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ToppingModel topping;
 

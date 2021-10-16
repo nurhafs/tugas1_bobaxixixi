@@ -9,5 +9,5 @@ public interface StoreService {
     List<StoreModel> getStoreList();
     StoreModel getStoreByIdStore(Long idStore);
     List<StoreModel> getStoreListSorted();
-    void deleteStore(StoreModel store);
+    void removeStore(StoreModel store);
 }

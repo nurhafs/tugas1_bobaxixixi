@@ -3,7 +3,7 @@
  
 <head>
     <meta charset="UTF-8">
-    <title> Home </title>
+    <title> BOBAXIXIXI </title>
     <object th:include="fragments/fragment :: css" th:remove="tag"></object>
     <object th:include="fragments/fragment :: js" th:remove="tag"></object>
 </head>
@@ -13,18 +13,17 @@
 </nav>
 <div class="d-flex justify-content-center">
     <div class="m-4">
-        <h2>Selamat datang di Bobaxixixi</h2>
-        <!-- <div class="d-flex justify-content-center">
-            <a th:href="@{/cabang/viewall}" class="mx-2 btn btn-dark">Lihat semua cabang</a>
-            <a th:href="@{/cabang/add}" class="mx-2 btn btn-outline-dark">Tambah cabang</a>
+        <h2>Welcome to BOBAXIXIXI</h2>
+        <br><br>
+        <h3 style="text-align: center;">List of Features:</h3>
+        <br>
+        <div class="d-flex justify-content-center">
+            <a th:href="@{/store}" class="mx-2 btn btn-dark">Store</a>
+            <a th:href="@{/boba}" class="mx-2 btn btn-dark">Boba</a>
+            <a th:href="@{/search}" class="mx-2 btn btn-dark">Search</a>
+            <a th:href="@{/filter}" class="mx-2 btn btn-dark">Filter</a>
         </div>
-        <div class="my-3 d-flex justify-content-center">
-            <a th:href="@{/menu/viewall}" class="mx-2 btn btn-dark">Lihat semua menu</a>
-            <a th:href="@{/menu/add}" class="mx-2 btn btn-outline-dark">Tambah menu</a>
-        </div> -->
     </div>
-</div>
-<div th:replace="fragments/fragment :: footer('Home')">
 </div>
 </body>
  
